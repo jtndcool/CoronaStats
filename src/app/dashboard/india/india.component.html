@@ -1,0 +1,287 @@
+
+  <mat-tab-group>
+    <mat-tab label="State and District">
+    
+      
+  
+   <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <br>
+      <mat-form-field style="width:100%;">
+        <mat-label style="width: 100%;">Select State</mat-label>
+        <mat-select (ngModelChange)="onSelectState($event)" [(ngModel)]="selectedState" name="selectedState" style="width: 400px;">
+          <mat-option style="width: 100%;" *ngFor="let option of districtData | keyvalue" [value]="option.key">
+            {{option.key}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+        
+      <table style="cursor: pointer;" class="table" id="cust">
+        <th>Name</th>
+        <th>Cases</th>
+        <th>Recovered</th>
+        <tr  *ngFor="let option of selectedListDistricts | keyvalue">
+          <td (click)="onSelectDistrict(option.key)" >{{option.key}}</td>
+          <td>{{option.value.active}}</td>
+          <td>{{option.value.confirmed}}</td>
+        </tr>
+      </table>
+      
+      </div>
+    
+      
+     
+          <!-- <div class="col-4" *ngFor="let option of  dataDistrictGraph | keyvalue">
+            <div  style=" padding-left: -80px!important; border: rgb(206, 206, 206) 1px solid;">
+                <p-chart [options]="options" type="pie" [data]="option.value"></p-chart>
+              
+            </div>
+          
+         </div> -->
+         <div class="col-xs-6 col-sm-6">
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/v4-shims.css">
+          
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
+          
+          
+          <div class="social-box" *ngIf="stateDetails" style="border: 2px black!important;">
+              <div class="container">
+              
+                 <div class="row">
+                  <div class="col-xs-12 col-sm-12">
+                    <h1  style="font-family: cursive; text-align: center;">{{stateDetails.state}}</h1>
+                  </div>
+                 
+                    <div class="col-lg-3 col-xs-12 text-center">
+                    <div class="box" style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);">
+                      <i class="fas fa-chart-line  fa-3x Blink" aria-hidden="true"></i>
+                                 
+                      <div class="box-title">
+                        <h3>Active</h3>
+                      </div>
+                      <div class="box-text">
+                        <h1  class="display-1 count">{{stateDetails.active}}</h1>
+                      </div>
+                      
+                     </div>
+                  </div>	 
+                  
+                   <div class="col-lg-3 col-xs-12  text-center">
+                    <div class="box" style="background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);">
+                      <i class="fas fa-check-circle fa-3x Blink" aria-hidden="true"></i>
+                      <div class="box-title">
+                        <h3>Confirmed</h3>
+                      </div>
+                      <div class="box-text">
+                        <h1 class="display-1 count">{{stateDetails.confirmed}}</h1>
+                        </div>
+                     
+                     </div>
+                  </div>	 
+                  
+                   <div class="col-lg-3 col-xs-12 text-center">
+                    <div class="box" style="background-image: linear-gradient(45deg, #ff888c 0%, #ff3902 99%, #f83600 100%);">
+                      <i class="fas fa-book-dead fa-3x Blink" aria-hidden="true"></i>
+                               
+                      <div class="box-title">
+                        <h3>Deaths</h3>
+                      </div>
+                      <div class="box-text">
+                        <h1 class="display-1 count">{{stateDetails.deaths}}</h1>
+                        </div>
+                    
+                     </div>
+                  </div>	 
+                  
+                  <div class="col-lg-3 col-xs-12 text-center">
+                    <div class="box" style="background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);">
+                      <i class="fas fa-walking  fa-3x Blink" aria-hidden="true"></i>
+                                  
+                      <div class="box-title">
+                        <h3>Recovered</h3>
+                      </div>
+                      <div class="box-text">
+                        <h1 class="display-1 count">{{stateDetails.recovered}}</h1>
+                        </div>
+                     
+                     </div>
+                  </div>	 
+                 
+              
+              </div>		
+              </div>
+          </div>
+
+
+
+
+
+
+          <div class="social-box" *ngIf="districtDetails">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <h1 style="text-align: center;">{{districtDetails.name}}</h1>
+                </div>
+              </div>
+               <div class="row">
+               
+               
+                  <div class="col-lg-3 col-xs-12 text-center">
+                  <div class="box" style="background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);">
+                    <i class="fas fa-chart-line  fa-3x Blink" aria-hidden="true"></i>
+                               
+                    <div class="box-title">
+                      <h3>Active</h3>
+                    </div>
+                    <div class="box-text">
+                      <h1  class="display-1 count">{{districtDetails.active}}</h1>
+                    </div>
+                    
+                   </div>
+                </div>	 
+                
+                 <div class="col-lg-3 col-xs-12  text-center">
+                  <div class="box" style="background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);">
+                    <i class="fas fa-check-circle fa-3x Blink" aria-hidden="true"></i>
+                    <div class="box-title">
+                      <h3>Confirmed</h3>
+                    </div>
+                    <div class="box-text">
+                      <h1 class="display-1 count">{{districtDetails.confirmed}}</h1>
+                      </div>
+                   
+                   </div>
+                </div>	 
+                
+                 <div class="col-lg-3 col-xs-12 text-center">
+                  <div class="box" style="background-image: linear-gradient(45deg, #ff888c 0%, #ff3902 99%, #f83600 100%);">
+                    <i class="fas fa-book-dead fa-3x Blink" aria-hidden="true"></i>
+                             
+                    <div class="box-title">
+                      <h3>Deaths</h3>
+                    </div>
+                    <div class="box-text">
+                      <h1 class="display-1 count">{{districtDetails.deceased}}</h1>
+                      </div>
+                  
+                   </div>
+                </div>	 
+                
+                <div class="col-lg-3 col-xs-12 text-center">
+                  <div class="box" style="background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);">
+                    <i class="fas fa-walking  fa-3x Blink" aria-hidden="true"></i>
+                                
+                    <div class="box-title">
+                      <h3>Recovered</h3>
+                    </div>
+                    <div class="box-text">
+                      <h1 class="display-1 count">{{districtDetails.recovered}}</h1>
+                      </div>
+                   
+                   </div>
+                </div>	 
+               
+            
+            </div>		
+            </div>
+        </div>
+         </div>
+
+        
+
+   </div>
+
+  
+  
+
+  
+  
+      
+      
+      
+    </mat-tab>
+    <mat-tab label="India"> 
+      
+<div class="container">
+
+  <p-panel header="Time Series Chart CoronaVirus India " class=ui-g-6 ui-md-6>
+      <p-chart type="line" [data]="dataTimeSeriesGraph"></p-chart>
+  </p-panel>
+ 
+ 
+  
+  <p-chart type="line" [data]="dataStates"></p-chart>
+</div>
+<div class="container">
+  <div class="row">
+      
+  </div>
+  <div class="row">
+      <div class="col-xs-6 col-sm-6">
+          <p-chart type="bar" [data]="data"></p-chart>
+      </div>
+      <div class="col-xs-6 col-sm-6">
+          <p-chart type="line" [data]="data"></p-chart>
+      </div>
+      <div class="col-xs-6 col-sm-6">
+          <p-chart type="line" [data]="data"></p-chart>
+      </div>
+      <div class="col-xs-6 col-sm-6">
+          <p-chart type="line" [data]="data"></p-chart>
+      </div>
+  </div>
+
+ 
+      <table  id="customers" mat-table [dataSource]="dataIndia" matSort class="mat-elevation-z8" style="width: 100%; cursor: pointer;" >
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="State" >
+            <th style="text-align: center!important;" mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
+            <td  style="text-align: center"  mat-cell *matCellDef="let element"> {{element.state}} </td>
+          </ng-container>
+          
+          &nbsp; &nbsp;
+          <!-- Name Column -->
+          <ng-container matColumnDef="Active" class="col">
+            <th style="text-align: center;" mat-header-cell *matHeaderCellDef mat-sort-header>Active</th>
+            <td  mat-cell *matCellDef="let element"> {{element.active}} </td>
+          </ng-container>
+        
+          &nbsp; &nbsp;
+          <!-- Weight Column -->
+          <ng-container matColumnDef="Confirmed" class="col">
+            <th style="text-align: center;" mat-header-cell *matHeaderCellDef mat-sort-header>Confirmed</th>
+            <td  mat-cell *matCellDef="let element"> {{element.confirmed}} </td>
+          </ng-container>
+  
+          &nbsp; &nbsp;
+          <ng-container matColumnDef="Deaths" class="col">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Deaths</th>
+              <td style="background-color: rgb(241, 0, 0); text-align: center; color: white;" mat-cell *matCellDef="let element"> {{element.deaths}} </td>
+            </ng-container>
+  
+            &nbsp; &nbsp;
+            <ng-container matColumnDef="Recovered" class="col">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Recovered</th>
+              <td style="background-color: rgb(0, 185, 40); text-align: center; color: white;" mat-cell *matCellDef="let element"> {{element.recovered}} </td>
+            </ng-container>
+            &nbsp; &nbsp;
+            <ng-container matColumnDef="Migrated" class="col">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Migrated</th>
+              <td  mat-cell *matCellDef="let element"> {{element.migratedother}} </td>
+            </ng-container>
+            
+        
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+</div>
+
+       </mat-tab>
+    <mat-tab label="Third"> News Feeds </mat-tab>
+  </mat-tab-group>
+  

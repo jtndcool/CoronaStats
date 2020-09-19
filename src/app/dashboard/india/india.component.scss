@@ -1,0 +1,83 @@
+
+#customers, #cust {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th ,#cust td, #cust th{
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #cust tr:nth-child(even){background-color: #f2f2f2;}
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  #cust tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #cust tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #6a796b;
+    color: white;
+  }
+  #cust th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #6a796b;
+    color: white;
+  }
+  .col {
+      text-align: center!important;
+  }
+  @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+body{
+    background: #f2f2f2;
+    font-family: 'Poppins', sans-serif;
+}
+
+h3{
+    font-family: 'Poppins', sans-serif;
+}
+
+.social-box .box{
+    background: #FFF;
+    border-radius: 10px; 
+    padding: 40px 10px;
+    margin: 20px 0px;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.social-box .box:hover{
+   box-shadow: 0 0 6px #4183D7;
+}
+
+.social-box .box .box-text{
+    margin:20px 0px;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.social-box .box .box-btn a{
+    text-decoration: none;
+    color: #4183D7;
+    font-size: 16px;
+}
+
+.fa{
+     color:#4183D7;
+}
+.Blink {
+    animation: blinker 1.5s cubic-bezier(.5, 0, 1, 1) infinite alternate;  
+  }
+  @keyframes blinker {  
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }

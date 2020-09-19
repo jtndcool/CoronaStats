@@ -1,0 +1,239 @@
+<div class="container">
+
+
+    <mat-tab-group>
+        <mat-tab label="Symptom Checker">
+
+
+            <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                <mat-step [stepControl]="firstFormGroup">
+                    <form [formGroup]="firstFormGroup">
+                        <ng-template matStepLabel>1</ng-template>
+                        <div class="col-4" style=" padding-top: 10%; padding-bottom: 10%;">
+                            <h2>Do you have any of the following symptoms</h2>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="none">
+                                <label class="custom-control-label" for="none">None</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="fever">
+                                <label class="custom-control-label" for="fever">Fever</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="headache">
+                                <label class="custom-control-label" for="headache">Headache</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="breath">
+                                <label class="custom-control-label" for="breath">Feel Shortness of breath</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="cough">
+                                <label class="custom-control-label" for="cough">Cough</label>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <button mat-button  matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup" label="2">
+                    <form [formGroup]="secondFormGroup">
+                        <div class="col-4" style=" padding-top: 10%; padding-bottom: 10%;">
+                            <h2>Select if you have any history</h2>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="nec">
+                                <label class="custom-control-label" for="nec">No Existing conditions</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="Asthma">
+                                <label class="custom-control-label" for="Asthma">Asthma</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="Cancer">
+                                <label class="custom-control-label" for="Cancer">Cancer</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="chronic lung disease">
+                                <label class="custom-control-label" for="chronic lung disease">Chronic lung disease</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="Diabetes">
+                                <label class="custom-control-label" for="Diabetes">Diabetes</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="Hypertension">
+                                <label class="custom-control-label" for="Hypertension">Hypertension</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="Heart Disease">
+                                <label class="custom-control-label" for="Heart Disease">Heart Disease</label>
+                            </div>
+
+                        </div>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button  matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="thirdFormGroup" label="3">
+                    <form [formGroup]="thirdFormGroup">
+                        <div class="col-4" style=" padding-top: 10%; padding-bottom: 10%;">
+
+                            <h2>Do you or any of your family member came in contact with COVID 19 patient or suspected ?
+                            </h2>
+                            <mat-form-field>
+                                <mat-label>Select Option</mat-label>
+                                <mat-select>
+                                    <mat-option value="Yes">
+                                        No
+                                    </mat-option>
+                                    <mat-option value="Yes">
+                                        Yes
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                        </div>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+
+                <mat-step [stepControl]="fourthFormGroup" label="3">
+                    <form [formGroup]="fourthFormGroup">
+                        <div class="col-4" style=" padding-top: 10%; padding-bottom: 10%;">
+
+                            <h2>What is your colour code in Aarogya Setu app?(The Aarogya Setu app categorizes users into 4 colours based on a self-assessment questionnaire filled by the user)
+                            </h2>
+                            <mat-form-field>
+                                <mat-label>Select Option</mat-label>
+                                <mat-select>
+                                    <mat-option value="I have not installed the Aarogya Setu app">
+                                        I have not installed the Aarogya Setu app
+                                    </mat-option>
+                                    <mat-option value="Red colour in Aarogya Setu -  i.e.  COVID positive">
+                                        Red colour in Aarogya Setu -  i.e.  COVID positive
+                                    </mat-option>
+                                    <mat-option value="Orange colour in Aarogya Setu -  i.e.  High Risk">
+                                        Orange colour in Aarogya Setu -  i.e.  High Risk
+                                    </mat-option>
+                                    <mat-option value="Yellow colour in Aarogya Setu  - i.e. Moderate Risk">
+                                        Yellow colour in Aarogya Setu  - i.e. Moderate Risk
+                                    </mat-option>
+                                    <mat-option value="Green colour in Aarogya Setu  -  i.e. Low Risk">
+                                        Green colour in Aarogya Setu  -  i.e. Low Risk
+                                    </mat-option>
+
+                                </mat-select>
+                            </mat-form-field>
+
+                        </div>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matsteplabel>Result</ng-template>
+                    <div class="col-4">
+                        <div class="card" style="width: 18rem;" style="background: rgb(172, 255, 139);">
+                            <div class="card-body">
+                                <h1 class="card-title">*Low Risk</h1>
+                                <p>You are at low risk..!! Still take precautions</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="stepper.reset()">Reset</button>
+                    </div>
+                </mat-step>
+            </mat-horizontal-stepper>
+
+
+        </mat-tab>
+
+        <mat-tab label="Doctors">
+
+          <div class="row">
+            <div class="col-xs-4 col-sm-4" *ngFor="let element of data">
+              <div
+                  class="card card-cascade wider">
+
+                  <!-- Card image -->
+                  <div class="view view-cascade overlay">
+                      <img class="card-img-top " src={{element.url}} alt="Card image cap">
+                      <a href="#!">
+                          <div class="mask rgba-white-slight"></div>
+                      </a>
+                  </div>
+
+                  <!-- Card content -->
+                  <div
+                      class="card-body card-body-cascade text-center">
+
+                      <!-- Title -->
+                      <h2 class="card-title">
+                          <strong>{{element.name}}</strong>
+                      </h2>
+                      <!-- Subtitle -->
+                      <h3 class="blue-text pb-2">
+                          <strong>{{element.degree}}</strong>
+                      </h3>
+                      <h3 class="blue-text pb-2">
+                          <strong>Location:
+                              {{element.address}}</strong>
+                      </h3>
+                      <!-- Text -->
+                      <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque
+                                                                        laudantium, totam rem aperiam.
+                      </p>
+
+                      <!-- Linkedin -->
+                      <a class="px-2 fa-lg li-ic">
+                          <i class="fab fa-linkedin-in"></i>
+                      </a>
+                      <!-- Twitter -->
+                      <a class="px-2 fa-lg tw-ic">
+                          <i class="fab fa-twitter"></i>
+                      </a>
+                      <!-- Dribbble -->
+                      <a class="px-2 fa-lg fb-ic">
+                          <i class="fab fa-facebook-f"></i>
+                      </a>
+
+                  </div>
+                  <button class="btn btn-success btn-primary">Book Appointment
+                      {{element.fees}}</button>
+
+              </div>
+
+
+          </div>
+
+          </div>
+          
+              
+
+ 
+
+        </mat-tab>
+
+    </mat-tab-group>
+
+
+</div>
+

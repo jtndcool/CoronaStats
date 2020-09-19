@@ -28,9 +28,18 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/mdbootstrap/css/mdb.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/mdbootstrap/js/mdb.min.js",
+              "./node_modules/chart.js/dist/Chart.js",
+              "./node_modules/rss-parser/dist/rss-parser.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -92,6 +101,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +133,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "CoronaStats"
 }

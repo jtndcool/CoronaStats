@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row" *ngIf="isLoading">
+        <app-loader></app-loader>
+    </div>
+	<div class="row" *ngIf="!isLoading">
+	   <div class="card border-danger golge">
+            <div class="card-header"><a href="anasayfa.html" class="isteColor">
+                <h2 class="text-center m-2" style="font-weight: bold">WHO Updates</h2>
+              </a></div>
+            <div class="card-body">
+              <div class="carousel vert slide" data-ride="carousel" data-interval="2000">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <ul class="timeline" *ngFor="let news of newsFeed.rss.channel.item">
+                      <li>
+                        <!--"_blank" tıklanan linkin yeni sekmede açılmasını sağlar.-->
+                        <h2>{{news.title}}</h2>
+                        <br>
+                        <a class="float-right">{{news.pubDate}}</a>
+                        <a href={{news.link}}>{{news.link}}</a>
+                        <p class="article">{{news.description}}</p>
+                      </li>
+                      <hr>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+	</div>
+</div>
